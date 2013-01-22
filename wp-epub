@@ -2,20 +2,20 @@
 /*
 Plugin Name: Category to ePub
 Plugin URI: http://URI_Of_Page_Describing_Plugin_and_Updates
-Description: Converts a Category to an ePub
+Description: Converts a Category to an ePub on post save, then adds said epub to media library
 Version: The Plugin's Version Number, e.g.: 1.0
 Author: Jack Reichert
 Author URI: http://www.jackreichert.com
 License: A "Slug" license name e.g. GPL2
 
-Note: Doesn't yet deal with media (images) yet, currently links to online version. This will fail [epub validators](http://validator.idpf.org) if your posts contain images.
+Note: Doesn't deal with media (images) yet, currently links to online version.
 
 */
 add_action( 'save_post', 'on_save_make_category_epub' );
 // on savepost make epub
 function on_save_make_category_epub( $post_id ) {
 
-  //verify post is not a revision
+	//verify post is not a revision
 	if ( !wp_is_post_revision( $post_id ) ) {
 		
 		// get post categories
